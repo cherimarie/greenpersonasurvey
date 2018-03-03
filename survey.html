@@ -1,0 +1,172 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Survey</title>
+  <style type="text/css">
+    body {
+      font-family: sans-serif;
+      background: linear-gradient(to right, #54D6AF, #BCD654);
+      padding: 2rem;
+    }
+    .hidden {
+      display: none;
+    }
+    label {
+      display: block;
+      margin-bottom: 2rem;
+    }
+    input[type="submit"], button{
+      background-color: #6E54D6;
+      border: none;
+      border-radius: .25rem;
+      color: white;
+      padding: .5rem;
+      text-align: center;
+      text-decoration: none;
+      display: inline-block;
+      font-size: 16px;
+      margin: 4px 2px;
+    }
+    form p {
+      font-weight: bold;
+    }
+    img {
+      max-width: 12rem;
+      float: left;
+      margin-right: 2rem;
+    }
+  </style>
+</head>
+<body>
+  <h1>What's your Green persona?</h1>
+  <form id="question1" name="question1">
+    <p>Why are you interested in clean energy?</p>
+
+    <label>
+      <input type="radio" name="motivation" value="a">
+      It's super futuristic!
+    </label>
+    <label>
+      <input type="radio" name="motivation" value="b">
+      My grandkids think it's really important
+    </label>
+    <label>
+      <input type="radio" name="motivation" value="c">
+      Well, "interested" is a strong word....
+    </label>
+
+    <input type="submit" value="next">
+  </form>
+
+  <form id="question2" name="question2" class="hidden">
+    <p>How excited are you about electric vehicles?</p>
+
+    <label>
+      <input type="radio" name="excited" value="c">
+      As long as they're affordable and easy to maintain, I'm a fan
+    </label>
+    <label>
+      <input type="radio" name="excited" value="a">
+      Electric is cool, but I can't wait to have a <i>self driving</i> car
+    </label>
+    <label>
+      <input type="radio" name="excited" value="b">
+      I'm thrilled more people are driving them. I got my first one almost a decade ago.
+    </label>
+
+    <input type="submit" value="next">
+  </form>
+
+
+  <form id="question3" name="question3" class="hidden">
+    <p>What are your plans this weekend?</p>
+
+    <label>
+      <input type="radio" name="plans" value="b">
+      Participating in a community cleanup of the park in my neighborhood
+    </label>
+    <label>
+      <input type="radio" name="plans" value="c">
+      Cleaning my apartment, taking care of some banking online, and going to the gym
+    </label>
+    <label>
+      <input type="radio" name="plans" value="a">
+      Working on converting an autonomous sweeping robot to run on solar power
+    </label>
+
+    <input type="submit" value="see your persona!">
+  </form>
+
+  <div class="hidden result">
+    <img src="" alt="your green persona" id="persona">
+    <h2 id="headline"></h2>
+    <p id="persona-desc"></p>
+    <button onclick="reset()">Take the quiz again!</button>
+  </div>
+
+
+  <script>
+    // a: futuristic flamingo https://www.wisbroek.com/wp-content/uploads/2017/02/flamingo-18397514_xl-1-600x600.jpg
+    // b: responsible possum https://i.ytimg.com/vi/upizVx4V-WY/maxresdefault.jpg
+    // c: practical porcupine http://zoonooz.sandiegozoo.org/wp-content/uploads/2015/11/HeroPorcupine2.jpg
+    var answers = {motivation: "", excited: "", plans: ""}
+    var count = {a: 0, b: 0, c: 0}
+
+    document.querySelector("form#question1").addEventListener("submit", function(event){
+      event.preventDefault()
+      answers.motivation = document.question1.motivation.value
+      this.classList.add("hidden")
+      document.querySelector("form#question2").classList.remove("hidden")
+    })
+    document.querySelector("form#question2").addEventListener("submit", function(event){
+      event.preventDefault()
+      answers.excited = document.question2.excited.value
+      this.classList.add("hidden")
+      document.querySelector("form#question3").classList.remove("hidden")
+    })
+    document.querySelector("form#question3").addEventListener("submit", function(event){
+      event.preventDefault()
+      answers.plans = document.question3.plans.value
+      this.classList.add("hidden")
+      document.querySelector("div.result").classList.remove("hidden")
+      count[answers.motivation] +=1
+      count[answers.excited] +=1
+      count[answers.plans] +=1
+      if(count.a >= 2){
+        buildA()
+      } else if(count.b >= 2){
+        buildB()
+      } else if(count.c >= 2){
+        buildC()
+      } else {
+        buildA()
+      }
+    })
+
+    function buildA() {
+      document.querySelector("h2#headline").innerHTML = "Your green persona is <b>Futuristic Flamingo</b>"
+      document.querySelector("img#persona").setAttribute("src", "https://www.wisbroek.com/wp-content/uploads/2017/02/flamingo-18397514_xl-1-600x600.jpg")
+      document.querySelector("p#persona-desc").innerHTML = "You're totally pumped about how cool the future is going to be, and can't wait to be a part of it! The incredible advances in how we can create electricity without harming our environment are super interesting to you."
+    }
+
+    function buildB() {
+      document.querySelector("h2#headline").innerHTML = "Your green persona is <b>Responsible Possum</b>"
+      document.querySelector("img#persona").setAttribute("src", "https://i.ytimg.com/vi/upizVx4V-WY/maxresdefault.jpg")
+      document.querySelector("p#persona-desc").innerHTML = "You're passionate about being a responsible global citizen, and doing everything you can to preserve and protect our natural resources."
+    }
+
+    function buildC() {
+      document.querySelector("h2#headline").innerHTML = "Your green persona is <b>Practical Porcupine</b>"
+      document.querySelector("img#persona").setAttribute("src", "http://zoonooz.sandiegozoo.org/wp-content/uploads/2015/11/HeroPorcupine2.jpg")
+      document.querySelector("p#persona-desc").innerHTML = "You want affordable electricity service that you don't have to think about. We respect that. "
+    }
+
+    function reset() {
+      document.querySelector("form#question3").classList.add("hidden")
+      document.querySelector("form#question2").classList.add("hidden")
+      document.querySelector("div.result").classList.add("hidden")
+      document.querySelector("form#question1").classList.remove("hidden")
+    }
+  </script>
+</body>
+</html>
