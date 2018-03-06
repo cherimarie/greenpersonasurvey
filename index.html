@@ -44,7 +44,7 @@
 
     <label>
       <input type="radio" name="motivation" value="a">
-      It's super futuristic!
+      It's exciting! There are new advances every day.
     </label>
     <label>
       <input type="radio" name="motivation" value="b">
@@ -53,6 +53,18 @@
     <label>
       <input type="radio" name="motivation" value="c">
       Well, "interested" is a strong word....
+    </label>
+    <label>
+      <input type="radio" name="motivation" value="f">
+      It's vital for our continued existence as a species
+    </label>
+    <label>
+      <input type="radio" name="motivation" value="d">
+      I'm not- it's just another fad
+    </label>
+    <label>
+      <input type="radio" name="motivation" value="e">
+      I don't really get it, but I know it's important
     </label>
 
     <input type="submit" value="next">
@@ -71,7 +83,19 @@
     </label>
     <label>
       <input type="radio" name="excited" value="b">
-      I'm thrilled more people are driving them. I got my first one almost a decade ago.
+      I love how great the gas mileage is on my Nissan Leaf
+    </label>
+    <label>
+      <input type="radio" name="excited" value="d">
+      "Electric" is just a marketing trick, I'm not fooled
+    </label>
+    <label>
+      <input type="radio" name="excited" value="e">
+      It seems like every car company is building them now, so I'm sure I'll get one eventually
+    </label>
+    <label>
+      <input type="radio" name="excited" value="f">
+      It's a step in the right direction, but I'm concerned about the long term ecological impact of all those batteries
     </label>
 
     <input type="submit" value="next">
@@ -82,16 +106,90 @@
     <p>What are your plans this weekend?</p>
 
     <label>
-      <input type="radio" name="plans" value="b">
+      <input type="radio" name="weekend" value="f">
       Participating in a community cleanup of the park in my neighborhood
     </label>
     <label>
-      <input type="radio" name="plans" value="c">
+      <input type="radio" name="weekend" value="e">
       Cleaning my apartment, taking care of some banking online, and going to the gym
     </label>
     <label>
-      <input type="radio" name="plans" value="a">
-      Working on converting an autonomous sweeping robot to run on solar power
+      <input type="radio" name="weekend" value="a">
+      Connecting my smart coffee maker to my smart refrigerator
+    </label>
+    <label>
+      <input type="radio" name="weekend" value="c">
+      Taking my kids to their soccer matches
+    </label>
+    <label>
+      <input type="radio" name="weekend" value="b">
+      Trying out a recipe for all natural DIY laundry detergent
+    </label>
+    <label>
+      <input type="radio" name="weekend" value="d">
+      Making my famous bbq brisket
+    </label>
+
+    <input type="submit" value="next">
+  </form>
+
+  <form id="question4" name="question4" class="hidden">
+    <p>What's the last nonprofit you donated to?</p>
+
+    <label>
+      <input type="radio" name="donate" value="f">
+      I organized a fundraiser for <a href="http://www.nycaudubon.org/" target="_blank">NYC Audubon Society</a>
+    </label>
+    <label>
+      <input type="radio" name="donate" value="c">
+      The neighborhood small business association that my deli is a member of
+    </label>
+    <label>
+      <input type="radio" name="donate" value="d">
+      Donate? I pay my kid's phone bill, what else do you want from me?
+    </label>
+    <label>
+      <input type="radio" name="donate" value="a">
+      The <a href="https://www.eff.org/" target="_blank">Electronic Frontier Foundation</a>, to support their work on Net Neutrality
+    </label>
+    <label>
+      <input type="radio" name="donate" value="b">
+      I protected a rainforest in the Congo by buying a carbon offset certificate from <a href="https://standfortrees.org/en/" target="_blank">Stand For Trees</a>
+    </label>
+    <label>
+      <input type="radio" name="donate" value="e">
+      I want to save pangolins, so I gave to the <a href="https://www.worldwildlife.org/" target="_blank">World Wildlife Fund</a>
+    </label>
+
+    <input type="submit" value="next">
+  </form>
+
+    <form id="question5" name="question5" class="hidden">
+    <p>What steps have you taken to "go green" already?</p>
+
+    <label>
+      <input type="radio" name="steps" value="d">
+      Turn off the lights when I leave a room, power isn't free you know
+    </label>
+    <label>
+      <input type="radio" name="steps" value="c">
+      I always sort my recycling properly
+    </label>
+    <label>
+      <input type="radio" name="steps" value="e">
+      I take the train to work instead of driving, does that count?
+    </label>
+    <label>
+      <input type="radio" name="steps" value="b">
+      We just got a compost bin for our kitchen!
+    </label>
+    <label>
+      <input type="radio" name="steps" value="f">
+      I talked my dad into trading in his old car for a hybrid
+    </label>
+    <label>
+      <input type="radio" name="steps" value="a">
+      I recycle all my old iPhones
     </label>
 
     <input type="submit" value="see your persona!">
@@ -106,40 +204,82 @@
 
 
   <script>
-    // a: futuristic flamingo https://www.wisbroek.com/wp-content/uploads/2017/02/flamingo-18397514_xl-1-600x600.jpg
-    // b: responsible possum https://i.ytimg.com/vi/upizVx4V-WY/maxresdefault.jpg
-    // c: practical porcupine http://zoonooz.sandiegozoo.org/wp-content/uploads/2015/11/HeroPorcupine2.jpg
-    var answers = {motivation: "", excited: "", plans: ""}
-    var count = {a: 0, b: 0, c: 0}
+    // a: futuristic flamingo
+    // b: responsible possum (Laila)
+    // c: practical platypus (Jordan)
+    // d: curmudgeonly crawfish
+    // e: curious quail
+    // f: champion papillion
+    var answers = {motivation: "", excited: "", weekend: "", donate: "", steps: ""}
+    var count = {a: 0, b: 0, c: 0, d: 0, e: 0, f: 0}
 
     document.querySelector("form#question1").addEventListener("submit", function(event){
       event.preventDefault()
       answers.motivation = document.question1.motivation.value
+      document.question1.motivation.forEach(function(a){a.checked = false})
       this.classList.add("hidden")
       document.querySelector("form#question2").classList.remove("hidden")
+      console.log(answers)
     })
     document.querySelector("form#question2").addEventListener("submit", function(event){
       event.preventDefault()
       answers.excited = document.question2.excited.value
+      document.question2.excited.forEach(function(a){a.checked = false})
       this.classList.add("hidden")
       document.querySelector("form#question3").classList.remove("hidden")
+      console.log(answers)
     })
     document.querySelector("form#question3").addEventListener("submit", function(event){
       event.preventDefault()
-      answers.plans = document.question3.plans.value
+      answers.weekend = document.question3.weekend.value
+      document.question3.weekend.forEach(function(a){a.checked = false})
+      this.classList.add("hidden")
+      document.querySelector("form#question4").classList.remove("hidden")
+      console.log(answers)
+    })
+    document.querySelector("form#question4").addEventListener("submit", function(event){
+      event.preventDefault()
+      answers.donate = document.question4.donate.value
+      document.question4.donate.forEach(function(a){a.checked = false})
+      this.classList.add("hidden")
+      document.querySelector("form#question5").classList.remove("hidden")
+      console.log(answers)
+    })
+    document.querySelector("form#question5").addEventListener("submit", function(event){
+      event.preventDefault()
+      answers.steps = document.question5.steps.value
+      document.question5.steps.forEach(function(a){a.checked = false})
       this.classList.add("hidden")
       document.querySelector("div.result").classList.remove("hidden")
+      console.log(answers)
       count[answers.motivation] +=1
       count[answers.excited] +=1
-      count[answers.plans] +=1
-      if(count.a >= 2){
-        buildA()
-      } else if(count.b >= 2){
-        buildB()
-      } else if(count.c >= 2){
-        buildC()
-      } else {
-        buildA()
+      count[answers.weekend] +=1
+      count[answers.donate] +=1
+      count[answers.steps] +=1
+      var sorted = Object.keys(count).sort(function(a, b){
+        return count[a] - count[b]
+      })
+      console.log(sorted)
+      switch(sorted[sorted.length -1]){
+        case "a":
+          buildA()
+          break
+        case "b":
+          buildB()
+          break
+        case "c":
+          buildC()
+          break
+        case "d":
+          buildD()
+          break
+        case "e":
+          buildE()
+          break
+        case "f":
+          buildF()
+          break
       }
     })
 
@@ -156,12 +296,34 @@
     }
 
     function buildC() {
-      document.querySelector("h2#headline").innerHTML = "Your green persona is <b>Practical Porcupine</b>"
-      document.querySelector("img#persona").setAttribute("src", "http://zoonooz.sandiegozoo.org/wp-content/uploads/2015/11/HeroPorcupine2.jpg")
+      document.querySelector("h2#headline").innerHTML = "Your green persona is <b>Practical Platypus</b>"
+      document.querySelector("img#persona").setAttribute("src", "https://www.zoo.org.au/sites/default/files/styles/zv_carousel_large/public/platypus-underwater-animal-profile-web620.jpg?itok=9tMADBfM")
       document.querySelector("p#persona-desc").innerHTML = "You want affordable electricity service that you don't have to think about. We respect that. "
     }
 
+    function buildD() {
+      document.querySelector("h2#headline").innerHTML = "Your green persona is <b>Crawfish Curmudgeon</b>"
+      document.querySelector("img#persona").setAttribute("src", "https://res-4.cloudinary.com/dostuff-media/image/upload//c_fill,g_faces,f_auto,w_800/v1485378104/event-poster-7337598.jpg")
+      document.querySelector("p#persona-desc").innerHTML = ""
+    }
+
+    function buildE() {
+      document.querySelector("h2#headline").innerHTML = "Your green persona is <b>Curious Quail</b>"
+      document.querySelector("img#persona").setAttribute("src", "https://i.pinimg.com/736x/58/56/c1/5856c1da528a5672d7fa6f36805259bd--quails-pheasant.jpg")
+      document.querySelector("p#persona-desc").innerHTML = ""
+    }
+
+    function buildF() {
+      document.querySelector("h2#headline").innerHTML = "Your green persona is <b>Champion Papillon</b>"
+      document.querySelector("img#persona").setAttribute("src", "https://i.pinimg.com/originals/b0/c4/59/b0c4595489f790c909a008776ef51e75.jpg")
+      document.querySelector("p#persona-desc").innerHTML = " "
+    }
+
     function reset() {
+      answers = {motivation: "", excited: "", weekend: "", donate: "", steps: ""}
+      count = {a: 0, b: 0, c: 0, d: 0, e: 0, f: 0}
+      document.querySelector("form#question5").classList.add("hidden")
+      document.querySelector("form#question4").classList.add("hidden")
       document.querySelector("form#question3").classList.add("hidden")
       document.querySelector("form#question2").classList.add("hidden")
       document.querySelector("div.result").classList.add("hidden")
