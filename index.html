@@ -27,6 +27,10 @@
       font-size: 16px;
       margin: 4px 2px;
     }
+    button.reset {
+      margin-top: 2rem;
+      float: right;
+    }
     form p {
       font-weight: bold;
     }
@@ -134,15 +138,11 @@
   </form>
 
   <form id="question4" name="question4" class="hidden">
-    <p>What's the last nonprofit you donated to?</p>
+    <p>What's the last charitable donation you made?</p>
 
     <label>
-      <input type="radio" name="donate" value="f">
-      I organized a fundraiser for <a href="http://www.nycaudubon.org/" target="_blank">NYC Audubon Society</a>
-    </label>
-    <label>
       <input type="radio" name="donate" value="c">
-      The neighborhood small business association that my deli is a member of
+      I gave to the neighborhood small business association that my deli is a member of
     </label>
     <label>
       <input type="radio" name="donate" value="d">
@@ -150,7 +150,11 @@
     </label>
     <label>
       <input type="radio" name="donate" value="a">
-      The <a href="https://www.eff.org/" target="_blank">Electronic Frontier Foundation</a>, to support their work on Net Neutrality
+      I make regular donations to the <a href="https://www.eff.org/" target="_blank">Electronic Frontier Foundation</a>, to support their work on Net Neutrality
+    </label>
+    <label>
+      <input type="radio" name="donate" value="f">
+      I organized a fundraiser for <a href="http://www.nycaudubon.org/" target="_blank">NYC Audubon Society</a>
     </label>
     <label>
       <input type="radio" name="donate" value="b">
@@ -206,7 +210,7 @@
   <script>
     // a: futuristic flamingo
     // b: responsible possum (Laila)
-    // c: practical platypus (Jordan)
+    // c: practical puffin (Jordan)
     // d: curmudgeonly crawfish
     // e: curious quail
     // f: champion papillion
@@ -284,39 +288,39 @@
     })
 
     function buildA() {
-      document.querySelector("h2#headline").innerHTML = "Your green persona is <b>Futuristic Flamingo</b>"
-      document.querySelector("img#persona").setAttribute("src", "https://www.wisbroek.com/wp-content/uploads/2017/02/flamingo-18397514_xl-1-600x600.jpg")
-      document.querySelector("p#persona-desc").innerHTML = "You're totally pumped about how cool the future is going to be, and can't wait to be a part of it! The incredible advances in how we can create electricity without harming our environment are super interesting to you."
+      document.querySelector("h2#headline").innerHTML = "Your green persona is <b>Futuristic Fossa</b>"
+      document.querySelector("img#persona").setAttribute("src", "http://animals.sandiegozoo.org/sites/default/files/inline-images/fossa_tree.jpg")
+      document.querySelector("p#persona-desc").innerHTML = "You're excited about how cool the future is going to be, and can't wait to be a part of it! You stay abreast of the latest scientific and technological advances, so you know how many of them are in the field of renewable energy right now. Being a supporter of clean energy means helping drive those advances."
     }
 
     function buildB() {
-      document.querySelector("h2#headline").innerHTML = "Your green persona is <b>Responsible Possum</b>"
-      document.querySelector("img#persona").setAttribute("src", "https://i.ytimg.com/vi/upizVx4V-WY/maxresdefault.jpg")
-      document.querySelector("p#persona-desc").innerHTML = "You're passionate about being a responsible global citizen, and doing everything you can to preserve and protect our natural resources."
+      document.querySelector("h2#headline").innerHTML = "Your green persona is <b>Responsible Red Panda</b>"
+      document.querySelector("img#persona").setAttribute("src", "http://www.zoonewengland.org/media/813822/redpanda_gallery10.jpg")
+      document.querySelector("p#persona-desc").innerHTML = "You care about being a responsbile global citizen, helping to preserve and protect our natural resources. Your life is busy, so you want to maximize the impact of the contributions you're able to make."
     }
 
     function buildC() {
-      document.querySelector("h2#headline").innerHTML = "Your green persona is <b>Practical Platypus</b>"
-      document.querySelector("img#persona").setAttribute("src", "https://www.zoo.org.au/sites/default/files/styles/zv_carousel_large/public/platypus-underwater-animal-profile-web620.jpg?itok=9tMADBfM")
-      document.querySelector("p#persona-desc").innerHTML = "You want affordable electricity service that you don't have to think about. We respect that. "
+      document.querySelector("h2#headline").innerHTML = "Your green persona is <b>Practical Puffin</b>"
+      document.querySelector("img#persona").setAttribute("src", "http://www.cbc.ca/kidscbc2/content/the_feed/cute_puffin1.jpg")
+      document.querySelector("p#persona-desc").innerHTML = "You want affordable electricity service that you don't have to think about. We respect that."
     }
 
     function buildD() {
-      document.querySelector("h2#headline").innerHTML = "Your green persona is <b>Crawfish Curmudgeon</b>"
+      document.querySelector("h2#headline").innerHTML = "Your green persona is <b>Contrary Crawfish</b>"
       document.querySelector("img#persona").setAttribute("src", "https://res-4.cloudinary.com/dostuff-media/image/upload//c_fill,g_faces,f_auto,w_800/v1485378104/event-poster-7337598.jpg")
-      document.querySelector("p#persona-desc").innerHTML = ""
+      document.querySelector("p#persona-desc").innerHTML = "You're a grump! But I bet you wouldn't mind having a positive impact on our environment if you didn't have to go out of your way to do it."
     }
 
     function buildE() {
       document.querySelector("h2#headline").innerHTML = "Your green persona is <b>Curious Quail</b>"
       document.querySelector("img#persona").setAttribute("src", "https://i.pinimg.com/736x/58/56/c1/5856c1da528a5672d7fa6f36805259bd--quails-pheasant.jpg")
-      document.querySelector("p#persona-desc").innerHTML = ""
+      document.querySelector("p#persona-desc").innerHTML = "You know protecting and preserving our environment is important, but aren't quite sure how you can make a difference. You're excited to learn more and participate in the growing sustainability movement."
     }
 
     function buildF() {
       document.querySelector("h2#headline").innerHTML = "Your green persona is <b>Champion Papillon</b>"
       document.querySelector("img#persona").setAttribute("src", "https://i.pinimg.com/originals/b0/c4/59/b0c4595489f790c909a008776ef51e75.jpg")
-      document.querySelector("p#persona-desc").innerHTML = " "
+      document.querySelector("p#persona-desc").innerHTML = "You're an outspoken champion of environmental stewardship, active in your community and always looking to share your knowledge. We bet you're a bike commuter and have your own worm bin. In fact, you're probably already a Drift customer!"
     }
 
     function reset() {
