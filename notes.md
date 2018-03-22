@@ -27,26 +27,26 @@
 - Practical Puffin (Jordan)
     1. well, "interested" is a strong word
     2. as long as they're ....
-    3. taking my kids to their soccer match
+    <!-- 3. taking my kids to their soccer match -->
     4. donate neighborhood small business association that i'm a member of
     5. properly sort all my recycling
     result:
         "You want affordable electricity service that you don't have to think about. We respect that."
 
 - Contrary Crawfish (the villian with a heart of gold)
-    1. it's just a passing fad, trend
+    <!-- 1. it's just a passing fad, trend -->
     2. it's a marketing trick
     3. making my famous bbq brisket
     4. donate? i pay my kid's phone bill what else do you want from me
-    5. turn off lights when i leave a room, power ain't free
+    <!-- 5. turn off lights when i leave a room, power ain't free -->
     result:
         "You're a grump! But I bet you wouldn't mind having a positive impact on our environment if you didn't have to go out of your way to do it."
     - did you know you can recycle batteries at xxxx
 
 - Curious Quail (curious, needs guidance on how to start)
-    1. i don't fully understand it, i just know it's important
+    <!-- 1. i don't fully understand it, i just know it's important -->
     2. i heard that VW will only be making EVs starting in 2019, so i'm sure at some point i'll own one
-    3.  Cleaning my apartment, taking care of some banking online, and going to the gym
+    <!-- 3.  Cleaning my apartment, taking care of some banking online, and going to the gym -->
     4. donated WWF
     5. i take the train to work instead of driving, does that count?
     result:
@@ -54,7 +54,7 @@
 
 - Champion Papillon (the environmental activist)
     1. it's vital for our continued survival as a species
-    2. it's a step in the right direction, but i'm concerned about the long term effects of leftover batteries
+    <!-- 2. it's a step in the right direction, but i'm concerned about the long term effects of leftover batteries -->
     3. community clean up of the park
     4. organized a fundraiser for my local Audobon Society chapter
     5. got my dad to buy a prius or EV
